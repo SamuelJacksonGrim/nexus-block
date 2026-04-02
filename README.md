@@ -101,3 +101,59 @@ Designed by **Samuel Jackson Grim** through multi-agent AI collaboration with Ge
 ## License
 
 MIT. Free to use, modify, deploy, sell, whatever. Just build something good with it.
+
+---
+
+flowchart LR
+    subgraph Cell["Aqueous Zinc-Ion Cell Pack"]
+        Z1[Voltage]
+        Z2[Current]
+        Z3[Temperature]
+        Z4[Internal Resistance]
+    end
+
+---
+
+```mermaid
+flowchart TB
+    subgraph Cell["⚡ Aqueous Zinc-Ion Cell Pack"]
+        direction LR
+        Z1[Voltage] --- Z2[Current] --- Z3[Temperature] --- Z4[Internal Resistance]
+    end
+
+    subgraph CAN["CAN Bus 2.0"]
+        direction LR
+        CANRX[Telemetry In] --- CANTX[Commands Out]
+    end
+
+    subgraph BMS["Resonance Bridge — BMS Controller"]
+        direction LR
+        Dendrite["Dendrite Detection"] --- Thermal["PCM Drift Logic"]
+        Buffer["20–80% SoC Enforcement"] --- Faults["Fault Classification"]
+    end
+
+    subgraph LoRa["LoRaWAN Radio Layer"]
+        direction LR
+        TX["Health Packet TX · Port 10"] --- RX["Coordination RX · Downlink"]
+    end
+
+    subgraph RGO["Resonance Grid Optimizer"]
+        direction LR
+        FleetAgg[Fleet Aggregation] --> FaultIso[Fault Isolation]
+        FleetAgg --> LoadBal[Load Balancing]
+        FleetAgg --> Predict[Predictive Capacity]
+        FleetAgg --> ThermalDist[Thermal Distribution]
+    end
+
+    HW[/"Load · Charge Hardware"\]
+
+    Cell --> CANRX
+    CANTX --> HW
+    CANRX --> BMS
+    BMS --> CANTX
+    BMS --> TX
+    TX --> FleetAgg
+    LoadBal --> RX
+    FaultIso --> RX
+    RX --> BMS
+```
