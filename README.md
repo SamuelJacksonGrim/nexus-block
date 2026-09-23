@@ -1,5 +1,10 @@
 # Nexus-Block
 
+[![License: AGPL-3.0-only](https://img.shields.io/badge/license-AGPL--3.0--only-blue)](LICENSE)
+[![dual-license](https://img.shields.io/badge/dual--license-AGPL--3.0--only%20or%20commercial-blueviolet)](LICENSING.md)
+[![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white)](https://www.python.org)
+
+
 **Cheap, safe, ultra-compact battery storage for off-grid use.**
 
 An open-source Battery Management System bridge for Aqueous Zinc-Ion micro-energy storage, designed for modular deployment in off-grid environments.
